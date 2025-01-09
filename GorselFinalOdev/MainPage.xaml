@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+    <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GorselFinalOdev.MainPage">
+
+    <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="20">
+        <!-- Hoşgeldiniz Mesajı -->
+        <Label Text="Uygulamaya Hoşgeldiniz" FontSize="24" FontAttributes="Bold" TextColor="#311B45" Margin="30,0,0,0"/>
+
+        <!-- Giriş/Kayıt Frame -->
+        <Frame CornerRadius="30" BorderColor="#6E557C" Padding="20" WidthRequest="350">
+            <StackLayout>
+                <!-- Giriş Yap Stack -->
+                <StackLayout x:Name="loginStack" Spacing="15">
+                    <Label Text="Oturum Aç" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center"/>
+
+                    <Entry x:Name="txtEmail" Placeholder="Email" Keyboard="Email"  FontSize="18" />
+                    <Entry x:Name="txtPassword" Placeholder="Şifre" IsPassword="True"  FontSize="18"/>
+
+                    <Button Text="Oturum Aç" Clicked="LoginClicked" BackgroundColor="#5E35B1" TextColor="White" 
+                            FontSize="18" HeightRequest="50" CornerRadius="25"/>
+                    <Button Text="Hesabım Yok" BackgroundColor="Transparent" TextColor="#5E35B1" FontSize="16" 
+                            Clicked="EkranGoster" HorizontalOptions="Center"/>
+                </StackLayout>
+
+                <!-- Kayıt Ol Stack -->
+                <StackLayout x:Name="registerStack" Spacing="15" IsVisible="False">
+                    <Label Text="Kayıt Ol" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center"/>
+
+                    <Entry x:Name="txtNickname" Placeholder="Kullanıcı Adı" Keyboard="Default" FontSize="18"/>
+                    <Entry x:Name="txtRegisterEmail" Placeholder="Email" Keyboard="Email" FontSize="18"/>
+                    <Entry x:Name="txtRegisterPassword" Placeholder="Şifre" IsPassword="True" FontSize="18"/>
+
+                    <Button Text="Kayıt Ol" Clicked="RegisterClicked" BackgroundColor="#5E35B1" TextColor="White" 
+                            FontSize="18" HeightRequest="50" CornerRadius="25"/>
+                    <Button Text="Zaten Hesabım Var" BackgroundColor="Transparent" TextColor="#5E35B1" FontSize="16" 
+                            Clicked="EkranGoster" HorizontalOptions="Center"/>
+                </StackLayout>
+            </StackLayout>
+        </Frame>
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" ?>
+    <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GorselFinalOdev.ToDoList"
+             Title="ToDoList">
+    <Grid Padding="10" RowDefinitions="*, Auto" ColumnDefinitions="2*, 1*">
+        <!-- Yapılacaklar Listesi -->
+        <ScrollView Grid.Row="0" Grid.Column="0" VerticalOptions="FillAndExpand">
+            <CollectionView x:Name="toDoList" SelectionMode="Single" SelectionChanged="ToDoList_SelectionChanged">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="4" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border BackgroundColor="White" Stroke="#6E557C" Padding="5">
+                            <Grid RowDefinitions="Auto" ColumnDefinitions="0.1*, 0.6*, 0.2*, 0.1*">
+                                <CheckBox Grid.Row="0" Grid.Column="0"
+                                          Color="#311B45"
+                                          IsChecked="{Binding IsCompleted, Mode=TwoWay}"
+                                          CheckedChanged="CheckBox_CheckedChanged" />
+                                <Label Grid.Row="0" Grid.Column="1"
+                                       Text="{Binding NoteContent}"
+                                       TextColor="Black" 
+                                       VerticalOptions="Center"
+                                       FontSize="16" />
+                                <Label Grid.Row="0" Grid.Column="1"
+                                       Text="{Binding DateCreated}"
+                                       TextColor="Gray"
+                                       FontSize="12"
+                                       VerticalOptions="Center"
+                                       HorizontalTextAlignment="End"
+                                       Margin="10,0,0,0"/>
+                                <Button Grid.Row="0" Grid.Column="2"
+                                        Text="Düzenle"
+                                        TextColor="White" 
+                                        BackgroundColor="Gray"
+                                        FontSize="16"
+                                        Clicked="Edit_Clicked"
+                                        CommandParameter="{Binding Id}" />
+                                <Button Grid.Row="0" Grid.Column="3"
+                                        Text="Sil"
+                                        TextColor="White" 
+                                        BackgroundColor="Red"
+                                        FontSize="16"
+                                        Clicked="Delete_Clicked"
+                                        CommandParameter="{Binding Id}" />
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </ScrollView>
+
+        <!-- Görev Detayları -->
+        <Frame Grid.Row="0" Grid.Column="1" Padding="10" BackgroundColor="#F0F0F0" CornerRadius="10">
+            <StackLayout>
+                <Label x:Name="noteDetails" 
+                       Text="Görev Detayları" 
+                       TextColor="Black" 
+                       FontSize="18" 
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center" 
+                       Margin="0,0,0,10"/>
+                <Label x:Name="noteDetailsContent" 
+                       Text="Seçilen göreve ait detaylar burada gösterilecektir." 
+                       TextColor="Gray" 
+                       FontSize="14" 
+                       LineBreakMode="WordWrap"/>
+            </StackLayout>
+        </Frame>
+
+        <!-- Alt Butonlar -->
+        <StackLayout Grid.Row="1" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalOptions="Center" Spacing="20">
+            <Button Text="Ekle"
+                    TextColor="White"
+                    BackgroundColor="Green"
+                    FontSize="25"
+                    Clicked="NoteAdd_Clicked" />
+            <Button Text="Kaydet"
+                    TextColor="White"
+                    BackgroundColor="Blue"
+                    FontSize="25"
+                    Clicked="Save_Clicked" />
+        </StackLayout>
+    </Grid>
+</ContentPage>

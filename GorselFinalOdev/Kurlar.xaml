@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GorselFinalOdev.Kurlar"
+             Title="Kurlar">
+    <ScrollView>
+        <Grid RowDefinitions="Auto,Auto,Auto">
+            <Label Grid.Row="0" Text="Güncel Döviz Kurları" TextColor="{AppThemeBinding Light={StaticResource MainBackgroundColor}, Dark={StaticResource White}}" FontSize="Large" Margin="20" HorizontalTextAlignment="Center"/>
+            <CollectionView Grid.Row="1" x:Name="dovizliste"  Margin="20">
+                <CollectionView.Header>
+
+                    <Grid ColumnDefinitions="*,*,*,*" RowDefinitions="auto">
+                        <Label Text="Döviz Adı" Grid.Column="0"/>
+                        <Label Text="Alış Fiyatı" Grid.Column="1"/>
+                        <Label Text="Satış Fiyatı" Grid.Column="2"/>
+                        <Label Text="Fark" Grid.Column="3"/>
+                    </Grid>
+
+
+
+                </CollectionView.Header>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BorderColor="#6E557C">
+                            <Grid ColumnDefinitions="*,*,*,*">
+                                <Label Grid.Column="0" Text="{Binding Name}" FontSize="20" TextColor="{AppThemeBinding Light={StaticResource MainBackgroundColor}, Dark={StaticResource White}}"/>
+                                <Label Grid.Column="1" Text="{Binding Alis}" FontSize="20"/>
+                                <Label Grid.Column="2" Text="{Binding Satis}" FontSize="20"/>
+                                <Label Grid.Column="3" Text="{Binding Degisim}" FontSize="20"/>
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+
+            <Button Grid.Row="2" Text="Güncelle" Margin="20" Clicked="Button_Clicked"  BackgroundColor="#311B45"
+                    TextColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource White}}"/>
+
+
+        </Grid>
+
+
+
+
+    </ScrollView>
+
+
+</ContentPage>

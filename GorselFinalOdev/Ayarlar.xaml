@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GorselFinalOdev.Ayarlar"
+             Title="Ayarlar">
+    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+
+        <Label Text="Dark/Light Mod" FontSize="Large"/>
+        <Switch Toggled="Switch_Toggled" HorizontalOptions="Center" VerticalOptions="Center" MinimumHeightRequest="150" MinimumWidthRequest="50" />
+    </StackLayout>
+
+</ContentPage>

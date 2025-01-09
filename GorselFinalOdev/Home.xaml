@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GorselFinalOdev.Home"
+             Title="Home">
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,40"
+            Spacing="25"
+            BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark= {StaticResource MainBackgroundColor}}">
+
+            <Border
+                BackgroundColor="#311B45" 
+                HeightRequest="200"
+                WidthRequest="200"
+                Stroke="#6E557C"
+                StrokeShape="RoundRectangle 30,30,30,30"
+                StrokeThickness="2">
+                <Image Aspect="AspectFill" Source="pp.jpeg"/>
+                <Border.Shadow>
+                    <Shadow
+                        Brush="#C283FD"
+                        Opacity=".7"
+                        Radius="50"
+                        Offset="0,0"/>
+                </Border.Shadow>
+            </Border>
+
+            <Label
+                Text="Gökhan Ada"
+                HorizontalOptions="Center"
+                FontSize="20"
+                TextColor="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}"/>
+
+            <Label
+                Text="Bartın Üniversitesi Bilgisayar Mühendisliği"
+                HorizontalOptions="Center"
+                HorizontalTextAlignment="Center"
+                FontSize="20"
+                TextColor="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}"/>
+
+
+            <Label
+                Text="ÖDEV-2"
+                HorizontalTextAlignment="Center"
+                FontSize="20"
+                TextColor="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}"/>
+
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
